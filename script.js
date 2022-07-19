@@ -1,12 +1,8 @@
-'use strict';
-
-let chances = ['Rock', 'Scissors', 'Paper'];
-let computerPlay = () => chances[Math.floor(Math.random() * chances.length)];
+const chances = ['Rock', 'Scissors', 'Paper'];
 let scorePlayer = 0;
 let scoreComputer = 0;
-// const playerPlay = function () => ;
-
-let playRound = function (playerSelection, computerSelection) {
+const computerPlay = () => chances[Math.floor(Math.random() * chances.length)];
+const playRound = function (playerSelection, computerSelection) {
   switch ((playerSelection + computerSelection).toLowerCase()) {
     case 'ScissorsPaper'.toLowerCase():
     case 'RockScissors'.toLowerCase():
@@ -29,10 +25,6 @@ let playRound = function (playerSelection, computerSelection) {
   }
   return scorePlayer, scoreComputer;
 };
-
-const playerSelection = 'Rock';
-let computerSelection = computerPlay();
-
 const winnerCheck = function (scorePlayer, scoreComputer) {
   if (scorePlayer > scoreComputer) {
     console.log(`You won! 😊`);
@@ -41,7 +33,7 @@ const winnerCheck = function (scorePlayer, scoreComputer) {
   } else console.log(`Draw!`);
   return `${scorePlayer} : ${scoreComputer}`;
 };
-let game = function (args) {
+const game = function (args) {
   for (let i = 0; i < args; i++) {
     playRound(prompt(chances), computerPlay());
     console.log(
@@ -51,6 +43,5 @@ let game = function (args) {
   }
   return winnerCheck(scorePlayer, scoreComputer);
 };
-
 const fiveRepsGame = game(5);
 console.log(fiveRepsGame);
