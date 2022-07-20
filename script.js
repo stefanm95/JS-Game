@@ -33,7 +33,7 @@ const winnerCheck = function (scorePlayer, scoreComputer) {
     console.log(`You won! 😊`);
   } else if (scorePlayer < scoreComputer) {
     console.log(`You lost! 😒`);
-  } else console.log(`Draw!`);
+  } else console.log(`It is a draw!`);
   return `${scorePlayer} : ${scoreComputer}`;
 };
 const game = function (args) {
@@ -47,4 +47,3 @@ const game = function (args) {
   return winnerCheck(scorePlayer, scoreComputer);
 };
 const fiveRepsGame = game(5);
-console.log(fiveRepsGame);
