@@ -22,6 +22,9 @@ const playRound = function (playerSelection, computerSelection) {
       console.log(`Draw`);
       scoreComputer += 1;
       scorePlayer += 1;
+      break;
+    default:
+      console.log(`Wrong input! Try Rock, Paper or Scissorsroc`);
   }
   return scorePlayer, scoreComputer;
 };
