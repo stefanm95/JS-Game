@@ -30,10 +30,10 @@ const playRound = function (playerSelection, computerSelection) {
 };
 const winnerCheck = function (scorePlayer, scoreComputer) {
   if (scorePlayer > scoreComputer) {
-    console.log(`You won! 😊`);
+    console.log(`You won! ${scorePlayer} vs ${scoreComputer} 😊`);
   } else if (scorePlayer < scoreComputer) {
-    console.log(`You lost! 😒`);
-  } else console.log(`It is a draw!`);
+    console.log(`You lost! ${scoreComputer} vs ${scorePlayer} 😒`);
+  } else console.log(`It is a draw! ${scorePlayer} vs ${scoreComputer} `);
   return `${scorePlayer} : ${scoreComputer}`;
 };
 const game = function (args) {
