@@ -32,7 +32,7 @@ const winnerCheck = function (scorePlayer, scoreComputer) {
   if (scorePlayer > scoreComputer) {
     console.log(`You won! ${scorePlayer} vs ${scoreComputer} 😊`);
   } else if (scorePlayer < scoreComputer) {
-    console.log(`You lost! ${scoreComputer} vs ${scorePlayer} 😒`);
+    console.log(`You lost! ${scorePlayer} vs ${scoreComputer} 😒`);
   } else console.log(`It is a draw! ${scorePlayer} vs ${scoreComputer} `);
   return `${scorePlayer} : ${scoreComputer}`;
 };
