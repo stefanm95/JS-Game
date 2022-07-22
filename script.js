@@ -1,8 +1,25 @@
 const chances = ['Rock', 'Scissors', 'Paper'];
 let scorePlayer = 0;
 let scoreComputer = 0;
+let i = 0;
 const computerPlay = () => chances[Math.floor(Math.random() * chances.length)];
-const playRound = function (playerSelection, computerSelection) {
+const playerPlay = function () {
+  while (true) {
+    const playerChoice = prompt(
+      'Write your selection [Rock, Paper or Scissors]'
+    ).toLowerCase();
+    if (
+      playerChoice == 'rock' ||
+      playerChoice == 'paper' ||
+      playerChoice == 'scissors'
+    ) {
+      return playerChoice;
+    } else {
+      console.log(`Wrong input. Please type Rock, Paper or Scissors`);
+    }
+  }
+};
+function playRound(playerSelection, computerSelection) {
   switch ((playerSelection + computerSelection).toLowerCase()) {
     case 'ScissorsPaper'.toLowerCase():
     case 'RockScissors'.toLowerCase():
@@ -24,10 +41,10 @@ const playRound = function (playerSelection, computerSelection) {
       scorePlayer += 1;
       break;
     default:
-      console.log(`Wrong input! Try Rock, Paper or Scissorsroc`);
+      console.log(`Wron input!`);
   }
   return scorePlayer, scoreComputer;
-};
+}
 const winnerCheck = function (scorePlayer, scoreComputer) {
   if (scorePlayer > scoreComputer) {
     console.log(`You won! ${scorePlayer} vs ${scoreComputer} 😊`);
@@ -36,14 +53,17 @@ const winnerCheck = function (scorePlayer, scoreComputer) {
   } else console.log(`It is a draw! ${scorePlayer} vs ${scoreComputer} `);
   return `${scorePlayer} : ${scoreComputer}`;
 };
-const game = function (args) {
-  for (let i = 0; i < args; i++) {
-    playRound(prompt(chances), computerPlay());
-    console.log(
-      `Your score: ${scorePlayer}`,
-      `Computer's score: ${scoreComputer}`
-    );
+const game = function () {
+  for (let i = 0; i < 5; i++) {
+    let playerText = playerPlay();
+    playRound(playerText, computerPlay());
+    {
+      console.log(
+        `Your score: ${scorePlayer}`,
+        `Computer's score: ${scoreComputer}`
+      );
+    }
   }
   return winnerCheck(scorePlayer, scoreComputer);
 };
-const fiveRepsGame = game(5);
+game();
